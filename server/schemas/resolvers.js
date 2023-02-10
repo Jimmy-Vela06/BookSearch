@@ -6,9 +6,12 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOne({ _id: context.user._id });
+        const data = await User.findOne({ _id: context.user._id });
+
+        return data;
       }
-      throw new AuthenticationError("You need to be logged in!");
+
+      throw new AuthenticationError("Not logged in");
     },
   },
 
@@ -64,4 +67,4 @@ const resolvers = {
   },
 };
 
-model.exports = resolvers;
+module.exports = resolvers;
