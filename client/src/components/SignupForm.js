@@ -8,6 +8,7 @@ import Auth from "../utils/auth";
 
 const SignupForm = () => {
   // set initial form state
+  // change to useState
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
@@ -42,7 +43,7 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    //chages
     try {
       const { data } = await addUser({
         variables: { ...userFormData },
